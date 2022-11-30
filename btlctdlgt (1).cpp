@@ -4,7 +4,6 @@
 #include <string.h>
 #define MAX 100
 using namespace std;
- 
 struct SinhVien {
     int id;
     char Ten[30];
@@ -16,9 +15,7 @@ struct SinhVien {
     float diemTB = 0;
     char hocluc[10] = "-";
 };
- 
 typedef SinhVien SV;
- 
 void printLine(int n);
 void nhapTTSV(SV &sv, int id);
 void nhapSV(SV a[], int id, int n);
@@ -35,7 +32,6 @@ void showStudent(SV a[], int n);
 int docFile(SV a[], char fileName[]);
 void ghiFile(SV a[], int n, char fileName[]);
 void pressAnyKey();
- 
 int main() {
     int key;
     char fileName[] = "sinhvien.txt";
@@ -44,7 +40,6 @@ int main() {
     int idCount = 0;
     soluongSV = docFile(arraySV, fileName);
     idCount = idLonNhat (arraySV, soluongSV);
- 
     while(true) {
         cout << "CHUONG TRINH QUAN LY SINH VIEN C/C++\n";
         cout << "*************************MENU**************************\n";
@@ -156,7 +151,6 @@ int main() {
         }
     }
 }
-  
 void tinhDTB(SV &sv) {
     sv.diemTB = (sv.diemToan + sv.diemLy + sv.diemHoa) / 3;    
 }
@@ -167,7 +161,6 @@ void xeploai(SV &sv) {
     else if(sv.diemTB >= 5) strcpy(sv.hocluc, "Trung binh");
     else strcpy(sv.hocluc, "Yeu");
 }
-  
 void nhapThongTinSV(SV &sv, int id) {
     cout << "\nNhap ten: "; fflush(stdin); gets(sv.Ten);
     cout << " Nhap gioi tinh: "; gets(sv.GioiTinh);
@@ -179,14 +172,12 @@ void nhapThongTinSV(SV &sv, int id) {
     tinhDTB(sv);
     xeploai(sv);
 }
- 
 void nhapSV(SV a[], int id, int n) {
     printLine(40);
     printf("\n Nhap sinh vien thu %d:", n + 1);
     nhapThongTinSV(a[n], id);
     printLine(40);
 }
- 
 void capNhatTTSV(SV &sv) {
     cout << "\n Nhap ten: "; fflush(stdin); gets(sv.Ten);
     cout << " Nhap gioi tinh: "; gets(sv.GioiTinh);
@@ -197,7 +188,6 @@ void capNhatTTSV(SV &sv) {
     tinhDTB(sv);
     xeploai(sv);
 }
- 
 void capNhatSV(SV a[], int id, int n) {
     int found = 0;
     for(int i = 0; i < n; i++) {
@@ -214,7 +204,6 @@ void capNhatSV(SV a[], int id, int n) {
         printf("\n Sinh vien co ID = %d khong ton tai.", id);
     }
 }
- 
 int xoaTheoID(SV a[], int id, int n) {
     int found = 0;
     for(int i = 0; i < n; i++) {
@@ -236,7 +225,6 @@ int xoaTheoID(SV a[], int id, int n) {
         return 1;
     }
 }
- 
 void timKiemTheoTen(SV a[], char ten[], int n) {
     SV arrayFound[MAX];
     char tenSV[30];
@@ -250,7 +238,6 @@ void timKiemTheoTen(SV a[], char ten[], int n) {
     }
     showStudent(arrayFound, found);
 }
- 
 void showStudent(SV a[], int n) {
     printLine(100);
     cout <<"\n\STT\tID\tHo va ten\tGioi tinh\tTuoi\tToan\tLy\tHoa\tDiem TB\tHoc luc";
@@ -296,7 +283,6 @@ void sapXepTheoTen(SV a[], int n) {
         }
     }
 }
- 
 int idLonNhat (SV a[], int n) {
     int idMax = 0;
     if (n > 0) {
@@ -309,7 +295,6 @@ int idLonNhat (SV a[], int n) {
     }
     return idMax;
 }
- 
 int docFile(SV a[], char fileName[]) {
     FILE * fp;
     int i = 0;
@@ -326,7 +311,6 @@ int docFile(SV a[], char fileName[]) {
     fclose (fp);
     return i;
 }
- 
 void ghiFile(SV a[], int n, char fileName[]) {
     FILE * fp;
     fp = fopen (fileName,"w");
@@ -344,7 +328,6 @@ void printLine(int n) {
     }
     cout << endl;
 }
- 
 void pressAnyKey() {
     cout << "\n\nBam phim bat ky de tiep tuc...";
     getch();
